@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Home from './components/Home';
+import Footer from './components/Footer';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
         <Experience />
         <Projects />
       </div>
+      <Footer darkMode={darkMode}/>
     </div>
   );
 }
