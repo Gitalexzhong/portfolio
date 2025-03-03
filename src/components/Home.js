@@ -20,7 +20,7 @@ const Container = styled(Box)(({ theme, darkmode }) => ({
   display: 'flex',
   flexDirection: 'row', // Default row layout
   alignItems: 'center',
-  justifyContent: 'space-between', // Dynamic spacing
+  justifyContent: 'space-around', // Dynamic spacing
   padding: '100px 50px 50px', // Padding to avoid overlap with navbar
   gap: '30px', // Add space between text and image
   color: darkmode ? '#fff' : '#333',
