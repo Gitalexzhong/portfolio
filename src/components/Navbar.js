@@ -5,10 +5,8 @@ import {
   Button,
   Typography,
   IconButton,
-  Menu,
-  MenuItem,
+  useMediaQuery,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { styled, keyframes } from '@mui/system';
@@ -44,24 +42,16 @@ const FloatingAppBar = styled(AppBar)(({ darkmode }) => ({
 }));
 
 function Navbar() {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem('darkMode') === 'true'
   );
+  const isSmallScreen = useMediaQuery('(max-width: 768px)'); // Detect small screens
 
   useEffect(() => {
     document.body.style.backgroundColor = darkMode ? '#121212' : '#f5f5f5';
     document.body.style.color = darkMode ? '#fff' : '#333';
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
-
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
@@ -110,43 +100,21 @@ function Navbar() {
             {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
           </IconButton>
 
-          <Button color="inherit" href="#about">
-            About
-          </Button>
-
-          <Button color="inherit" href="#experience">
-            Experience
-          </Button>
-          <Button color="inherit" href="#projects">
-            Projects
-          </Button>
+          {/* Show buttons on larger screens */}
+          {!isSmallScreen && (
+            <>
+              <Button color="inherit" href="#about">
+                About
+              </Button>
+              <Button color="inherit" href="#experience">
+                Experience
+              </Button>
+              <Button color="inherit" href="#projects">
+                Projects
+              </Button>
+            </>
+          )}
         </div>
-
-        {/* Hamburger menu for small screens */}
-        <IconButton
-          color="inherit"
-          onClick={handleMenuOpen}
-          sx={{ display: { xs: 'block', sm: 'none' } }}
-        >
-          <MenuIcon />
-        </IconButton>
-
-        {/* Dropdown menu (for small screens) */}
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-        >
-          <MenuItem onClick={handleMenuClose} component="a" href="#about">
-            About
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose} component="a" href="#experience">
-            Experience
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose} component="a" href="#projects">
-            Projects
-          </MenuItem>
-        </Menu>
       </Toolbar>
     </FloatingAppBar>
   );
