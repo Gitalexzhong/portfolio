@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import About from './components/About';
+import Home from './components/Home';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import './App.css';
 
 function App() {
+  // Dark mode state
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem('darkMode') === 'true'
+  );
+
+  // Effect to update body styles and save darkMode in localStorage
+  useEffect(() => {
+    document.body.style.backgroundColor = darkMode ? '#121212' : '#f5f5f5';
+    document.body.style.color = darkMode ? '#fff' : '#333';
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <div style={{ marginTop: '100px', padding: '16px' }}>
+        <Home darkMode={darkMode} />
         <About />
         <Experience />
         <Projects />

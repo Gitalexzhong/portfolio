@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   AppBar,
   Toolbar,
@@ -41,21 +41,8 @@ const FloatingAppBar = styled(AppBar)(({ darkmode }) => ({
   transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
 }));
 
-function Navbar() {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem('darkMode') === 'true'
-  );
+function Navbar({ darkMode, toggleDarkMode }) {
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // Detect small screens
-
-  useEffect(() => {
-    document.body.style.backgroundColor = darkMode ? '#121212' : '#f5f5f5';
-    document.body.style.color = darkMode ? '#fff' : '#333';
-    localStorage.setItem('darkMode', darkMode);
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
 
   return (
     <FloatingAppBar darkmode={darkMode ? 1 : 0}>
