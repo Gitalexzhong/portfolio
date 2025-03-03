@@ -35,12 +35,6 @@ const ImageSection = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ProfileImage = styled('img')({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-});
-
 function About() {
   return (
     <section id="about">
@@ -50,14 +44,15 @@ function About() {
             About Me
           </Typography>
           <Typography variant="h5" paragraph>
-            Computer Science Graduate with experience building integrated software for cloud deployment. Eager to leverage strong development skills and a passion for continuous learning to excel as a Backend Software Engineer. Currently expanding my knowledge in full-stack development processes through personal projects.
+            Computer Science Graduate with experience building integrated
+            software for cloud deployment. Eager to leverage strong development
+            skills and a passion for continuous learning to excel as a Backend
+            Software Engineer. Currently expanding my knowledge in full-stack
+            development processes through personal projects.
+
+            TBA TO BE FILLED OUT LATER
           </Typography>
         </TextSection>
-
-        <ImageSection>
-          {/* Import your local image */}
-          <ProfileImage src={require('../assets/profile.jpg')} alt="Profile" />
-        </ImageSection>
       </Container>
     </section>
   );
