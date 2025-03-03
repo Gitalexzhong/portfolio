@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -9,23 +9,51 @@ import {
   MenuItem,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { styled } from '@mui/system';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { styled, keyframes } from '@mui/system';
 
-const FloatingAppBar = styled(AppBar)(() => ({
+// Sparkle effect for the text
+const shimmer = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
+// Glow effect for the dark mode button
+const glow = keyframes`
+  0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+`;
+
+const FloatingAppBar = styled(AppBar)(({ darkmode }) => ({
   position: 'fixed',
-  top: 16, // Keeps space from the top
+  top: 16,
   left: '50%',
-  transform: 'translateX(-50%)', // Centers it
-  maxWidth: '95%', // Makes the navbar cover more width
-  borderRadius: '16px', // Rounded corners for floating effect
-  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.6)', // Floating shadow
-  backgroundColor: 'rgba(255, 255, 255, 0.9)', // Slight transparency
-  color: '#333',
+  transform: 'translateX(-50%)',
+  maxWidth: '95%',
+  borderRadius: '16px',
+  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.6)',
+  backgroundColor: darkmode
+    ? 'rgba(30, 30, 30, 0.9)'
+    : 'rgba(255, 255, 255, 0.9)',
+  color: darkmode ? '#fff' : '#333',
   padding: '8px 16px',
+  transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
 }));
 
 function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem('darkMode') === 'true'
+  );
+
+  useEffect(() => {
+    document.body.style.backgroundColor = darkMode ? '#121212' : '#f5f5f5';
+    document.body.style.color = darkMode ? '#fff' : '#333';
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,24 +63,57 @@ function Navbar() {
     setAnchorEl(null);
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <FloatingAppBar>
+    <FloatingAppBar darkmode={darkMode ? 1 : 0}>
       <Toolbar sx={{ width: '95%', justifyContent: 'space-between' }}>
         {/* Logo or Title on the left */}
-        <Typography variant="h6" sx={{ textAlign: 'left' }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontSize: '1.75rem',
+            fontWeight: 'bold',
+            background: darkMode
+              ? 'linear-gradient(135deg, #f39c12, #e74c3c, #f39c12)'
+              : 'linear-gradient(135deg, #3498db, #8e44ad, #3498db)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            letterSpacing: '1px',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            backgroundSize: '200% 200%',
+            animation: `${shimmer} 3s infinite linear`,
+            '&:hover': {
+              opacity: 0.8,
+            },
+          }}
+        >
           Alex.Dev
         </Typography>
 
-        {/* Buttons on the right (Fixing Disappearance Issue) */}
-        <div
-          style={{
-            display: 'flex', // Ensures buttons always appear
-            gap: '16px', // Adds spacing between buttons
-          }}
-        >
+        {/* Navigation buttons + Dark Mode Toggle */}
+        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          {/* Dark Mode Toggle Button */}
+          <IconButton
+            color="inherit"
+            onClick={toggleDarkMode}
+            sx={{
+              transition: 'all 0.3s ease-in-out',
+              '&:hover': {
+                animation: `${glow} 1.5s infinite alternate`,
+              },
+            }}
+          >
+            {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
+
           <Button color="inherit" href="#about">
             About
           </Button>
+
           <Button color="inherit" href="#experience">
             Experience
           </Button>
@@ -65,7 +126,7 @@ function Navbar() {
         <IconButton
           color="inherit"
           onClick={handleMenuOpen}
-          sx={{ display: { xs: 'block', sm: 'none' } }} // Only show on small screens
+          sx={{ display: { xs: 'block', sm: 'none' } }}
         >
           <MenuIcon />
         </IconButton>
