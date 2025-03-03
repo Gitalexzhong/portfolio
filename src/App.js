@@ -9,9 +9,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <About />
-      <Experience />
-      <Projects />
+      <div style={{ marginTop: '100px', padding: '16px' }}>
+        <About />
+        <Experience />
+        <Projects />
+      </div>
     </div>
   );
 }
