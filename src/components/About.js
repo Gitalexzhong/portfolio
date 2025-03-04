@@ -1,8 +1,36 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
-import { styled } from '@mui/system';
+import React, { useState, useEffect, useRef } from 'react';
+import { Box, Typography, useTheme } from '@mui/material';
+import { styled, keyframes } from '@mui/system';
 
-// Styled components for a unique design
+// Define keyframes for the bouncing effect (for emoji)
+const bounce = keyframes`
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+  60% { transform: translateY(4px); }
+  100% { transform: translateY(0); }
+`;
+
+// Styled component for animated emoji (slower bounce)
+const AnimatedEmoji = styled('span')({
+  display: 'inline-block',
+  fontSize: '1em',
+  animation: `${bounce} 2.5s infinite ease-in-out`, // Matches typing animation
+});
+
+// Simple colored underlined effect for bold text
+const SpecialText = styled('b')(({ theme, darkMode }) => ({
+  fontWeight: 'bold',
+  fontSize: '1.1em',
+  color: darkMode ? '#ADD8E6' : '#1976d2', // Lighter blue (#ADD8E6) for dark mode, normal blue for light mode
+  borderBottom: '2px solid transparent',
+  transition: 'border-color 0.3s ease-in-out, color 0.3s ease-in-out',
+  '&:hover': {
+    borderBottom: `2px solid ${darkMode ? '#0288d1' : '#1565c0'}`, // Darker blue on hover for both modes
+    color: darkMode ? '#0288d1' : '#1565c0', // Darker blue on hover for both modes
+  },
+}));
+
+// Styled container
 const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
@@ -10,7 +38,7 @@ const Container = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   padding: '50px',
   [theme.breakpoints.down('md')]: {
-    flexDirection: 'column', // Stack on small screens
+    flexDirection: 'column',
     textAlign: 'center',
   },
 }));
@@ -23,19 +51,48 @@ const TextSection = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ImageSection = styled(Box)(({ theme }) => ({
-  flex: 1,
-  maxWidth: '300px',
-  width: '100%',
-  borderRadius: '50%',
-  overflow: 'hidden',
-  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-  [theme.breakpoints.down('md')]: {
-    marginTop: '20px',
-  },
-}));
+// Typing Effect Component with adjusted timing
+const TypingEffect = ({ text, duration = 2500 }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
-function About() {
+  // Use Intersection Observer to detect when text enters viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Typing effect logic
+  useEffect(() => {
+    if (isVisible) {
+      let i = 0;
+      const typingSpeed = duration / text.length; // Ensure it matches bounce animation time
+
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          setDisplayedText(text.slice(0, i + 1));
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, typingSpeed);
+
+      return () => clearInterval(interval);
+    }
+  }, [isVisible, text, duration]);
+
+  return <SpecialText ref={ref}>{displayedText}</SpecialText>;
+};
+
+function About({ darkMode }) {
   return (
     <section id="about">
       <Container>
@@ -44,13 +101,18 @@ function About() {
             About Me
           </Typography>
           <Typography variant="h5" paragraph>
-            Computer Science Graduate with experience building integrated
-            software for cloud deployment. Eager to leverage strong development
-            skills and a passion for continuous learning to excel as a Backend
-            Software Engineer. Currently expanding my knowledge in full-stack
-            development processes through personal projects.
-
-            TBA TO BE FILLED OUT LATER
+            Hey there! I'm a <TypingEffect text="Computer Science Graduate" duration={2500} /> with an obsession
+            for uncovering insights hidden in data.
+          </Typography>
+          <Typography variant="h5" paragraph>
+            Right now, I'm on a mission to crack the code of{' '}
+            <TypingEffect text="Data Analytics" duration={2500} />, figuring out how numbers tell stories, drive
+            decisions, and maybe even predict the future (okay, not quite, but
+            close!).
+          </Typography>
+          <Typography variant="h5" paragraph>
+            I love a good challenge, and I'm on a mission to find the path to
+            that next <SpecialText darkMode={darkMode}>“<AnimatedEmoji>aha!</AnimatedEmoji>”</SpecialText> moment.
           </Typography>
         </TextSection>
       </Container>

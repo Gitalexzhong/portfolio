@@ -30,7 +30,7 @@ function App() {
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <div style={{ marginTop: '100px', padding: '16px' }}>
         <Home darkMode={darkMode} />
-        <About />
+        <About darkMode={darkMode} />
         <Experience />
         <Projects />
       </div>
