@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Projects() {
+function Education() {
   return (
-    <section id="projects">
-      <h2>Projects</h2>
+    <section id="education">
+      <h2>Education</h2>
       <ul>
         <li>Project 1: A React-based portfolio website</li>
         <li>Project 2: A task management app</li>
@@ -13,4 +13,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Education;

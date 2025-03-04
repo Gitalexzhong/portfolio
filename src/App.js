@@ -4,7 +4,10 @@ import About from './components/About';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
+
 import './App.css';
 
 function App() {
@@ -33,6 +36,8 @@ function App() {
         <About darkMode={darkMode} />
         <Experience darkMode={darkMode}/>
         <Projects darkMode={darkMode}/>
+        <Education darkMode={darkMode}/>
+        <Contact darkMode={darkMode}/>
       </div>
       <Footer darkMode={darkMode}/>
     </div>
