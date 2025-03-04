@@ -31,8 +31,8 @@ function App() {
       <div style={{ marginTop: '100px', padding: '16px' }}>
         <Home darkMode={darkMode} />
         <About darkMode={darkMode} />
-        <Experience />
-        <Projects />
+        <Experience darkMode={darkMode}/>
+        <Projects darkMode={darkMode}/>
       </div>
       <Footer darkMode={darkMode}/>
     </div>

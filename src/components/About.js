@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
 
 // Define keyframes for the bouncing effect (for emoji)
