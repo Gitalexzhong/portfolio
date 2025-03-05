@@ -53,10 +53,16 @@ const SocialIconsContainer = styled(Box)({
 const SocialIconButton = styled(IconButton)(({ darkmode }) => ({
   color: darkmode ? '#fff' : '#333',
   '& svg': {
-    fontSize: '1.5rem',
+    fontSize: '2rem', // Standardized icon size
     strokeWidth: 1.5,
     stroke: darkmode ? '#fff' : '#999',
     fill: 'none',
+  },
+  '&:hover': {
+    color: darkmode ? '#90CAF9' : '#1976d2', // Color change on hover
+    '& svg': {
+      stroke: darkmode ? '#90CAF9' : '#1976d2', // Hover effect for stroke
+    },
   },
 }));
 
@@ -74,7 +80,7 @@ const Footer = ({ darkMode }) => {
           <LinkedInIcon />
         </SocialIconButton>
         <SocialIconButton href="mailto:alexzhong108@gmail.com" target="_blank">
-          <EmailIcon /> 
+          <EmailIcon />
         </SocialIconButton>
       </SocialIconsContainer>
     </FooterContainer>
