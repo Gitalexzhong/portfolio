@@ -34,12 +34,12 @@ function App() {
       <div style={{ marginTop: '100px', padding: '16px' }}>
         <Home darkMode={darkMode} />
         <About darkMode={darkMode} />
-        <Experience darkMode={darkMode}/>
-        <Projects darkMode={darkMode}/>
-        <Education darkMode={darkMode}/>
-        <Contact darkMode={darkMode}/>
+        <Experience darkMode={darkMode} />
+        <Projects darkMode={darkMode} />
+        <Education darkMode={darkMode} />
+        <Contact darkMode={darkMode} />
       </div>
-      <Footer darkMode={darkMode}/>
+      <Footer darkMode={darkMode} />
     </div>
   );
 }
