@@ -72,7 +72,7 @@ const ExperienceCard = styled(Box)(({ darkMode }) => ({
 const CompanyName = styled(Typography)(({ darkMode }) => ({
   fontSize: '1.5rem',
   fontWeight: 'bold',
-  color: darkMode ? '#ADD8E6' : '#1976d2',
+  color: darkMode ? '#1976d2' : '#1976d2',
   marginBottom: '15px',
   textDecoration: 'none',
   '&:hover': {
