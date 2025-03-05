@@ -17,13 +17,6 @@ const ContactContainer = styled(Box)(({ darkMode }) => ({
   textAlign: 'center',
 }));
 
-const ContactTitle = styled(Typography)(({ darkMode }) => ({
-  fontSize: '2.5rem',
-  fontWeight: 'bold',
-  color: darkMode ? '#90CAF9' : '#0D47A1',
-  marginBottom: '20px',
-}));
-
 const ContactDescription = styled(Typography)(({ darkMode }) => ({
   fontSize: '1.25rem',
   color: darkMode ? '#B0BEC5' : '#546E7A',
@@ -50,7 +43,9 @@ const SocialIconButton = styled(Button)(({ darkMode }) => ({
   justifyContent: 'center',
   gap: '8px', // Adds space between icon and text
   '&:hover': {
-    backgroundColor: darkMode ? 'rgba(144, 202, 249, 0.1)' : 'rgba(13, 71, 161, 0.1)',
+    backgroundColor: darkMode
+      ? 'rgba(144, 202, 249, 0.1)'
+      : 'rgba(13, 71, 161, 0.1)',
     borderColor: darkMode ? '#90CAF9' : '#0D47A1',
   },
 }));
@@ -65,9 +60,13 @@ function Contact({ darkMode }) {
   return (
     <section id="contact">
       <ContactContainer darkMode={darkMode}>
-        <ContactTitle darkMode={darkMode}>Contact Me</ContactTitle>
+        <Typography variant="h3" component="h1" gutterBottom>
+          Contact Me
+        </Typography>
         <ContactDescription darkMode={darkMode}>
-          Feel free to reach out to me via email or connect with me on my social media platforms. I'm always open to new opportunities and collaborations!
+          Feel free to reach out to me via email or connect with me on my social
+          media platforms. I'm always open to new opportunities and
+          collaborations!
         </ContactDescription>
 
         {/* Email Address */}
