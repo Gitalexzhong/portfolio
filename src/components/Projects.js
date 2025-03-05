@@ -3,6 +3,9 @@ import { Box, Typography, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
+import ParkEaseImage from '../assets/ParkEase.png';
+import WebsiteImage from '../assets/Website.png';
+import DiscordImage from '../assets/discord-featured.avif';
 
 const ProjectContainer = styled(Box)(({ darkMode }) => ({
   padding: '50px',
@@ -79,22 +82,26 @@ const ProjectButton = styled(Button)(({ darkMode }) => ({
   },
 }));
 
+// Add image paths in your project data
 const projectData = {
   personalPortfolio: {
     name: "Personal Portfolio Website",
     description: "A personal portfolio website to showcase my projects and skills. Built with React, Material-UI, and hosted using Vercel.",
     websiteLink: "https://www.your-portfolio-link.com",
     githubLink: "https://github.com/Gitalexzhong/personal-website-2",
+    image: WebsiteImage,  // Use imported image here
   },
   modularVerificationBot: {
     name: "Cloud Hosted - Modular Verification Bot",
     description: "A low-bandwidth Docker-based bot designed to interact with external image databases for verification. Technologies used: Node.js, Docker, Google Cloud.",
     githubLink: "https://github.com/Gitalexzhong/OPBOT",
+    image: DiscordImage,  // Use imported image here
   },
   parkingSystem: {
     name: "Scalable Parking Administration System",
     description: "A full-stack solution for a scalable parking booking system. Built with React, Node.js, and Redis for real-time data processing. Private repo (Available on request).",
-    githubLink: null, // No public link available
+    githubLink: null,
+    image: ParkEaseImage,  // Use the imported image here
   },
 };
 
@@ -106,7 +113,19 @@ function Projects({ darkMode }) {
           Projects
         </Typography>
         <ProjectCardsContainer>
+          {/* Personal Portfolio Card */}
           <ProjectCard darkMode={darkMode}>
+            <img
+              src={projectData.personalPortfolio.image}
+              alt="Personal Portfolio"
+              style={{
+                width: '100%',
+                height: '200px', // Ensure consistent height
+                objectFit: 'cover', // Make image cover the area while maintaining aspect ratio
+                borderRadius: '10px',
+                marginBottom: '20px',
+              }}
+            />
             <ProjectTitle darkMode={darkMode}>{projectData.personalPortfolio.name}</ProjectTitle>
             <ProjectDescription darkMode={darkMode}>{projectData.personalPortfolio.description}</ProjectDescription>
             <ProjectButton
@@ -129,7 +148,19 @@ function Projects({ darkMode }) {
             </ProjectButton>
           </ProjectCard>
 
+          {/* Modular Verification Bot Card */}
           <ProjectCard darkMode={darkMode}>
+            <img
+              src={projectData.modularVerificationBot.image}
+              alt="Modular Verification Bot"
+              style={{
+                width: '100%',
+                height: '200px', // Ensure consistent height
+                objectFit: 'cover', // Make image cover the area while maintaining aspect ratio
+                borderRadius: '10px',
+                marginBottom: '20px',
+              }}
+            />
             <ProjectTitle darkMode={darkMode}>{projectData.modularVerificationBot.name}</ProjectTitle>
             <ProjectDescription darkMode={darkMode}>{projectData.modularVerificationBot.description}</ProjectDescription>
             <ProjectButton
@@ -143,7 +174,19 @@ function Projects({ darkMode }) {
             </ProjectButton>
           </ProjectCard>
 
+          {/* Parking System Card */}
           <ProjectCard darkMode={darkMode}>
+            <img
+              src={projectData.parkingSystem.image}
+              alt="Parking System"
+              style={{
+                width: '100%',
+                height: '200px', // Ensure consistent height
+                objectFit: 'cover', // Make image cover the area while maintaining aspect ratio
+                borderRadius: '10px',
+                marginBottom: '20px',
+              }}
+            />
             <ProjectTitle darkMode={darkMode}>{projectData.parkingSystem.name}</ProjectTitle>
             <ProjectDescription darkMode={darkMode}>{projectData.parkingSystem.description}</ProjectDescription>
             <ProjectButton
@@ -164,7 +207,7 @@ function Projects({ darkMode }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GitHubIcon /> See All Projects on GitHub
+          <GitHubIcon /> See More on GitHub
         </ProjectButton>
       </ProjectContainer>
     </section>
