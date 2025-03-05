@@ -40,7 +40,7 @@ const TextSection = styled(Box)(({ theme, darkmode }) => ({
 }));
 
 const ImageSection = styled(Box)(({ theme }) => ({
-  maxWidth: '300px',
+  maxWidth: '350px',
   width: '100%',
   borderRadius: '50%',
   overflow: 'hidden',

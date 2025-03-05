@@ -32,12 +32,24 @@ function App() {
     <div className="App">
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <div style={{ marginTop: '100px', padding: '16px' }}>
-        <Home darkMode={darkMode} />
-        <About darkMode={darkMode} />
-        <Experience darkMode={darkMode} />
-        <Projects darkMode={darkMode} />
-        <Education darkMode={darkMode} />
-        <Contact darkMode={darkMode} />
+        <div style={{ marginBottom: '100px' }}>
+          <Home darkMode={darkMode} />
+        </div>
+        <div style={{ marginBottom: '40px' }}>
+          <About darkMode={darkMode} />
+        </div>
+        <div style={{ marginBottom: '40px' }}>
+          <Experience darkMode={darkMode} />
+        </div>
+        <div style={{ marginBottom: '40px' }}>
+          <Projects darkMode={darkMode} />
+        </div>
+        <div style={{ marginBottom: '40px' }}>
+          <Education darkMode={darkMode} />
+        </div>
+        <div style={{ marginBottom: '40px' }}>
+          <Contact darkMode={darkMode} />
+        </div>
       </div>
       <Footer darkMode={darkMode} />
     </div>
