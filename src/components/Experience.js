@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Keyframe for hover animation (job titles slide up and color changes)
 const jobTitleHoverAnimation = keyframes`
@@ -250,7 +251,7 @@ function Experience({ darkMode }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          See All on LinkedIn
+          <LinkedInIcon />‎ See More on LinkedIn
         </SeeAllButton>
       </ExperienceContainer>
     </section>
