@@ -44,6 +44,33 @@ const FloatingAppBar = styled(AppBar)(({ darkmode }) => ({
 function Navbar({ darkMode, toggleDarkMode }) {
   const isSmallScreen = useMediaQuery('(max-width: 768px)'); // Detect small screens
 
+  // Function to smoothly scroll to the target section
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Offset to avoid navbar covering the content
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  // Function to scroll to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  // Function to scroll to the bottom of the page
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <FloatingAppBar darkmode={darkMode ? 1 : 0}>
       <Toolbar sx={{ width: '95%', justifyContent: 'space-between' }}>
@@ -90,14 +117,17 @@ function Navbar({ darkMode, toggleDarkMode }) {
           {/* Show buttons on larger screens */}
           {!isSmallScreen && (
             <>
-              <Button color="inherit" href="#about">
-                About
+              <Button color="inherit" onClick={scrollToTop}>
+                Home
               </Button>
-              <Button color="inherit" href="#experience">
+              <Button color="inherit" onClick={() => scrollToSection('experience')}>
                 Experience
               </Button>
-              <Button color="inherit" href="#projects">
+              <Button color="inherit" onClick={() => scrollToSection('projects')}>
                 Projects
+              </Button>
+              <Button color="inherit" onClick={scrollToBottom}>
+                Contact
               </Button>
             </>
           )}
