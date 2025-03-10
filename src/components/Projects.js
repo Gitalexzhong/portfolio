@@ -87,8 +87,8 @@ const projectData = {
   personalPortfolio: {
     name: "Personal Portfolio Website",
     description: "A personal portfolio website to showcase my projects and skills. Built with React, Material-UI, and hosted using Vercel.",
-    websiteLink: "https://personal-website-pearl-tau.vercel.app/",
-    githubLink: "https://github.com/Gitalexzhong/personal-website-2",
+    websiteLink: "https://gitalexzhong.github.io/portfolio/",
+    githubLink: "https://github.com/Gitalexzhong/portfolio/",
     image: WebsiteImage,  // Use imported image here
   },
   modularVerificationBot: {
