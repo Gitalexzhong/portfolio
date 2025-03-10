@@ -15,5 +15,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-// Im lazy can you dynamically pull the data from my experience section from my linkedin profile https://www.linkedin.com/in/alexzhong1/

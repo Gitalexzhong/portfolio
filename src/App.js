@@ -11,6 +11,8 @@ import Contact from './components/Contact';
 import './App.css';
 
 function App() {
+  document.title = 'Alex.Dev';
+
   // Dark mode state
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem('darkMode') === 'true'

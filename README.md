@@ -2,7 +2,7 @@
 
 This is my personal portfolio website built using React and Material-UI. The website showcases my projects, skills, and provides a professional platform to display my work. It's a responsive and visually appealing site designed to highlight my experience and expertise.
 
-Try it out at: <https://personal-website-pearl-tau.vercel.app/>
+Try it out at: <https://gitalexzhong.github.io/portfolio/>
 
 ## Features
 
