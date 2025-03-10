@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.f855e6bc.css",
+    "main.js": "/portfolio/static/js/main.5de8cb2b.js",
+    "static/js/453.cc4572a4.chunk.js": "/portfolio/static/js/453.cc4572a4.chunk.js",
+    "static/media/ParkEase.png": "/portfolio/static/media/ParkEase.a7ebedaadd8078d8446a.png",
+    "static/media/Website.png": "/portfolio/static/media/Website.ecf84f3bc0b97634a414.png",
+    "static/media/profile.jpg": "/portfolio/static/media/profile.1c1bd0a43917dd70e8bd.jpg",
+    "static/media/discord-featured.avif": "/portfolio/static/media/discord-featured.c9d4abc7514a4b9d2e3b.avif",
+    "static/media/GATEKEEP_GASLIGHT_GIRLBOSS_IGM.pdf": "/portfolio/static/media/GATEKEEP_GASLIGHT_GIRLBOSS_IGM.6e9251f41600b35a834b.pdf",
+    "index.html": "/portfolio/index.html",
+    "main.f855e6bc.css.map": "/portfolio/static/css/main.f855e6bc.css.map",
+    "main.5de8cb2b.js.map": "/portfolio/static/js/main.5de8cb2b.js.map",
+    "453.cc4572a4.chunk.js.map": "/portfolio/static/js/453.cc4572a4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.5de8cb2b.js"
+  ]
+}
