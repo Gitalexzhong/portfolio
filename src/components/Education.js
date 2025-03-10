@@ -104,7 +104,6 @@ function Education({ darkMode }) {
             <DateRange darkMode={darkMode}>2021 - 2024</DateRange>
           </Box>
         </EducationCard>
-
         {/* PwC Power BI Internship Certification */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
@@ -112,11 +111,31 @@ function Education({ darkMode }) {
             alt="PwC Logo"
           />
           <Box>
-            <InstitutionName darkMode={darkMode}>PwC Australia</InstitutionName>
+            <InstitutionName darkMode={darkMode}>
+              PwC Switzerland
+            </InstitutionName>
             <DegreeName darkMode={darkMode}>
               Power BI Job Simulation Certification
             </DegreeName>
             <DateRange darkMode={darkMode}>Completed: March 2025</DateRange>
+          </Box>
+        </EducationCard>
+        
+        {/* PL-300 Certification */}
+        <EducationCard darkMode={darkMode}>
+          <InstitutionLogo
+            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            alt="Microsoft Logo"
+            style={{ maxHeight: '80px' }} // Adjusted size for consistency
+          />
+          <Box>
+            <InstitutionName darkMode={darkMode}>Microsoft</InstitutionName>
+            <DegreeName darkMode={darkMode}>
+              PL-300: Microsoft Power BI Data Analyst Certification
+            </DegreeName>
+            <DateRange darkMode={darkMode}>
+              Expected Completion: June 2025
+            </DateRange>
           </Box>
         </EducationCard>
       </EducationContainer>
