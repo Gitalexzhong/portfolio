@@ -106,7 +106,7 @@ function About({ darkMode }) {
           </Typography>
           <Typography variant="h5" paragraph>
             Right now, I'm on a mission to crack the code of{' '}
-            <TypingEffect text="Data Analytics" duration={2500} />, figuring out how numbers tell stories, drive
+            <TypingEffect text="Data Analytics / Data Engineering" duration={2500} />, figuring out how numbers tell stories, drive
             decisions, and maybe even predict the future (okay, not quite, but
             close!).
           </Typography>
