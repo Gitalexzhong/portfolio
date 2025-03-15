@@ -3,8 +3,8 @@ import { Box, Typography, Button, styled } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import DescriptionIcon from '@mui/icons-material/Description'; // Icon for resume
-import resumeFile from '../assets/GATEKEEP_GASLIGHT_GIRLBOSS_IGM.pdf'; // Import the resume file
+// import DescriptionIcon from '@mui/icons-material/Description'; // Icon for resume
+// import resumeFile from '../assets/resume.pdf'; // Import the resume file
 
 // Styled components
 const ContactContainer = styled(Box)(({ darkMode }) => ({
@@ -106,14 +106,14 @@ function Contact({ darkMode }) {
         </SocialIconsContainer>
 
         {/* Download Resume Button */}
-        <SocialIconButton
+        {/* <SocialIconButton
           variant="outlined"
           darkMode={darkMode}
           href={resumeFile} // Use the imported resume file
           download="Alex_Zhong_Resume.pdf" // Name of the downloaded file
         >
           <DescriptionIcon /> Download Resume
-        </SocialIconButton>
+        </SocialIconButton> */}
       </ContactContainer>
     </section>
   );
