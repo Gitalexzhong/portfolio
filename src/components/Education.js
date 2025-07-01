@@ -88,7 +88,7 @@ function Education({ darkMode }) {
         {/* Bachelor's Degree */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
-            src="https://media.licdn.com/dms/image/v2/D560BAQGIlGcJynP5Dg/company-logo_200_200/company-logo_200_200/0/1709503417850/unsw_logo?e=1749081600&v=beta&t=-zqWbFb9F_VnPHWKFcYCWDgUXptrHFvnsCC0yiV1f50"
+            src="https://cdn.brandfetch.io/idIqa28pdx/w/400/h/400/theme/dark/icon.png?c=1dxbfHSJFAPEGdCLU4o5B"
             alt="UNSW Logo"
           />
           <Box>
@@ -107,7 +107,7 @@ function Education({ darkMode }) {
         {/* PwC Power BI Internship Certification */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
-            src="https://media.licdn.com/dms/image/v2/D4E0BAQGnGELqq6HXHw/company-logo_200_200/company-logo_200_200/0/1720517867022/pwc_logo?e=1749081600&v=beta&t=fBaqFsZk1MgGrsFYAJ8ehC_PUkaa_DUoEfAZfKD4Hqc"
+            src="https://cdn.brandfetch.io/idGJDqQ72Q/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B"
             alt="PwC Logo"
           />
           <Box>
@@ -124,9 +124,8 @@ function Education({ darkMode }) {
         {/* PL-300 Certification */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
-            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            src="https://cdn.brandfetch.io/idchmboHEZ/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B"
             alt="Microsoft Logo"
-            style={{ maxHeight: '80px' }} // Adjusted size for consistency
           />
           <Box>
             <InstitutionName darkMode={darkMode}>Microsoft</InstitutionName>

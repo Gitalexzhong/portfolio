@@ -124,7 +124,7 @@ function Experience({ darkMode }) {
   const experienceData = [
     {
       company: 'DXC Technology',
-      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQFt7orYWPc9MQ/company-logo_200_200/company-logo_200_200/0/1630537692227/dxctechnology_logo?e=1749081600&v=beta&t=rDdvCQnrZ-gQfe4JuSC25Kv6QO4HvyczFTePnM_PDBI',
+      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQFt7orYWPc9MQ/company-logo_200_200/company-logo_200_200/0/1630537692227/dxctechnology_logo?e=1756944000&v=beta&t=ukIrurKAIfQ8A-8vbRLpOXtRE6grE6Kj36wLa1PvmPw',
       linkedin: 'https://www.linkedin.com/company/dxc-technology/',
       roles: [
         {
@@ -136,7 +136,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'EML Group',
-      logo: 'https://media.licdn.com/dms/image/v2/D560BAQG28a3qZYybFg/company-logo_200_200/company-logo_200_200/0/1693768332527/emlgroup_logo?e=1749081600&v=beta&t=Lw-3o4-6nI_1dM5ceZxFXhDYzZRgKu4WtJEHBwKpwQQ',
+      logo: 'https://media.licdn.com/dms/image/v2/D560BAQG28a3qZYybFg/company-logo_200_200/company-logo_200_200/0/1693768332527/emlgroup_logo?e=1756944000&v=beta&t=gkiI-3frDINi6CWfwQquWoT6vuTCDEqcNT3FpwbjMM4',
       linkedin: 'https://www.linkedin.com/company/eml-group/',
       roles: [
         {
@@ -148,7 +148,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'UNSW Lofi Society',
-      logo: 'https://media.licdn.com/dms/image/v2/D560BAQEWClSDBlPrgQ/company-logo_100_100/company-logo_100_100/0/1700304096220?e=1749081600&v=beta&t=wtlNWVoN4p0Wsjhtk8Ie4gxNdN9epueI4YUj-UxH3Ws',
+      logo: 'https://media.licdn.com/dms/image/v2/D560BAQEWClSDBlPrgQ/company-logo_100_100/company-logo_100_100/0/1700304096220?e=1756944000&v=beta&t=O3g4R5apwGKGxkedQFyiD-zEaj_byG9ppCrdNT2RhC4',
       linkedin: 'https://www.linkedin.com/company/unsw-lofi-society/',
       roles: [
         {
@@ -160,7 +160,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'UNSW One Piece Society',
-      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQEZTIBeNVQ8Og/company-logo_200_200/company-logo_200_200/0/1655955059670?e=1749081600&v=beta&t=7Yllt02sEHAXehN72dpX57KPl6m0EMcp8i-FU_G_tHw',
+      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQEZTIBeNVQ8Og/company-logo_200_200/company-logo_200_200/0/1655955059670?e=1756944000&v=beta&t=5nw-2iwNsjBaiNNaUOeXPAAptYmMwgoDRtvHECp1KHI',
       linkedin: 'https://www.linkedin.com/company/unsw-one-piece-society/',
       roles: [
         {
@@ -182,7 +182,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'NSW Electoral Commission',
-      logo: 'https://media.licdn.com/dms/image/v2/C560BAQEaCr_IYd1bdQ/company-logo_200_200/company-logo_200_200/0/1630620174637/nsw_electoral_commission_logo?e=1749081600&v=beta&t=LD56sq2vuCh4t21Ffx80VB9ff69zh9ZQCXdNnMxb_Wk',
+      logo: 'https://media.licdn.com/dms/image/v2/C560BAQEaCr_IYd1bdQ/company-logo_200_200/company-logo_200_200/0/1630620174637/nsw_electoral_commission_logo?e=1756944000&v=beta&t=t9mZBXd1FHdBR1ieNKpdjAAXzoQ6QmYp7CGuN9VADDI',
       linkedin: 'https://www.linkedin.com/company/nsw-electoral-commission/',
       roles: [
         {
