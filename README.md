@@ -15,3 +15,9 @@ Try it out at: <https://gitalexzhong.github.io/portfolio/>
 - **React**: JavaScript library for building user interfaces.
 - **Material-UI**: A popular React UI framework to speed up the development process and ensure a polished UI.
 - **GitHub Pages/Vercel**: For deploying the website to the cloud.
+
+## Run deployment
+
+'''
+npm run deploy
+'''
