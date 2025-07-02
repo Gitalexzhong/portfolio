@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Confetti from 'react-confetti';
 import { Box, Typography, styled, keyframes } from '@mui/material';
 
 // Keyframe for hover animation (card scaling effect)
@@ -49,8 +50,6 @@ const InstitutionName = styled(Typography)(({ darkMode }) => ({
   fontWeight: 'bold',
   color: darkMode ? '#ADD8E6' : '#1976d2',
   marginBottom: '10px',
-  opacity: 1, // Keep the text opacity constant on hover
-  transform: 'translateY(0)', // No translation on hover
 }));
 
 const DegreeName = styled(Typography)(({ darkMode }) => ({
@@ -79,12 +78,37 @@ const InstitutionLogo = styled('img')({
 });
 
 function Education({ darkMode }) {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <section id="education">
+    <section id="education" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* 🎉 Confetti background */}
+      <Confetti
+        width={windowSize.width}
+        height={windowSize.height}
+        numberOfPieces={150}
+        recycle={false}
+      />
+
       <EducationContainer darkMode={darkMode}>
         <Typography variant="h3" component="h1" gutterBottom>
           Education
         </Typography>
+
         {/* Bachelor's Degree */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
@@ -104,6 +128,7 @@ function Education({ darkMode }) {
             <DateRange darkMode={darkMode}>2021 - 2024</DateRange>
           </Box>
         </EducationCard>
+
         {/* PwC Power BI Internship Certification */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
@@ -111,16 +136,14 @@ function Education({ darkMode }) {
             alt="PwC Logo"
           />
           <Box>
-            <InstitutionName darkMode={darkMode}>
-              PwC Switzerland
-            </InstitutionName>
+            <InstitutionName darkMode={darkMode}>PwC Switzerland</InstitutionName>
             <DegreeName darkMode={darkMode}>
               Power BI Job Simulation Certification
             </DegreeName>
             <DateRange darkMode={darkMode}>Completed: March 2025</DateRange>
           </Box>
         </EducationCard>
-        
+
         {/* PL-300 Certification */}
         <EducationCard darkMode={darkMode}>
           <InstitutionLogo
