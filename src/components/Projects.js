@@ -3,9 +3,7 @@ import { Box, Typography, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
-import ParkEaseImage from '../assets/ParkEase.png';
-import WebsiteImage from '../assets/Website.png';
-import DiscordImage from '../assets/discord-featured.avif';
+import { projects } from '../data/projects';
 
 const ProjectContainer = styled(Box)(({ darkMode }) => ({
   padding: '50px',
@@ -52,14 +50,14 @@ const ProjectCard = styled(Box)(({ darkMode }) => ({
 const ProjectTitle = styled(Typography)(({ darkMode }) => ({
   fontSize: '1.5rem',
   fontWeight: 'bold',
-  color: darkMode ? '#1976d2' : '#1976d2',
+  color: darkMode ? '#fff' : '#1976d2',
   marginBottom: '15px',
   textAlign: 'center',
 }));
 
 const ProjectDescription = styled(Typography)(({ darkMode }) => ({
   fontSize: '1rem',
-  color: darkMode ? '#B0BEC5' : '#546E7A',
+  color: darkMode ? '#e0e0e0' : '#546E7A',
   textAlign: 'center',
   marginBottom: '20px',
 }));
@@ -82,37 +80,6 @@ const ProjectButton = styled(Button)(({ darkMode }) => ({
   },
 }));
 
-// Add image paths in your project data
-const projectData = {
-  personalPortfolio: {
-    name: "Personal Portfolio Website",
-    description: "A personal portfolio website to showcase my projects and skills. Built with React, Material-UI, and hosted using Vercel.",
-    websiteLink: "https://gitalexzhong.github.io/portfolio/",
-    githubLink: "https://github.com/Gitalexzhong/portfolio/",
-    image: WebsiteImage,  // Use imported image here
-  },
-  rtwRehabProviderSearch: {
-    name: "RTW Rehab Provider Search",
-    description:
-      "A responsive web app for searching and visualizing RTW rehab provider locations in Australia. Built with Python, React, Vite, Leaflet, and Material-UI. Features an interactive map, address search, and provider filtering.",
-    websiteLink: "https://rtw-sira-rehab-finder.vercel.app/",
-    githubLink: "https://github.com/Gitalexzhong/webscrape-sira-rtw",
-    image: require('../assets/RTWSira.png'),
-  },
-  modularVerificationBot: {
-    name: "Cloud Hosted - Modular Verification Bot",
-    description: "A low-bandwidth Docker-based bot designed to interact with external image databases for verification. Technologies used: Node.js, Docker, Google Cloud.",
-    githubLink: "https://github.com/Gitalexzhong/OPBOT",
-    image: DiscordImage,  // Use imported image here
-  },
-  parkingSystem: {
-    name: "Scalable Parking Administration System",
-    description: "A full-stack solution for a scalable parking booking system. Built with React, Node.js, and Redis for real-time data processing. Private repo (Available on request).",
-    githubLink: null,
-    image: ParkEaseImage,  // Use the imported image here
-  },
-};
-
 function Projects({ darkMode }) {
   return (
     <section id="projects">
@@ -121,137 +88,65 @@ function Projects({ darkMode }) {
           Projects
         </Typography>
         <ProjectCardsContainer>
-          {/* Personal Portfolio Card */}
-          <ProjectCard darkMode={darkMode}>
-            <img
-              src={projectData.personalPortfolio.image}
-              alt="Personal Portfolio"
-              style={{
-                width: '100%',
-                height: '200px', // Ensure consistent height
-                objectFit: 'cover', // Make image cover the area while maintaining aspect ratio
-                borderRadius: '10px',
-                marginBottom: '20px',
-              }}
-            />
-            <ProjectTitle darkMode={darkMode}>{projectData.personalPortfolio.name}</ProjectTitle>
-            <ProjectDescription darkMode={darkMode}>{projectData.personalPortfolio.description}</ProjectDescription>
-            <ProjectButton
-              variant="outlined"
-              darkMode={darkMode}
-              href={projectData.personalPortfolio.websiteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LanguageIcon /> Visit Website
-            </ProjectButton>
-            <ProjectButton
-              variant="outlined"
-              darkMode={darkMode}
-              href={projectData.personalPortfolio.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon /> View on GitHub
-            </ProjectButton>
-          </ProjectCard>
-
-          {/* Modular Verification Bot Card */}
-          <ProjectCard darkMode={darkMode}>
-            <img
-              src={projectData.modularVerificationBot.image}
-              alt="Modular Verification Bot"
-              style={{
-                width: '100%',
-                height: '200px', // Ensure consistent height
-                objectFit: 'cover', // Make image cover the area while maintaining aspect ratio
-                borderRadius: '10px',
-                marginBottom: '20px',
-              }}
-            />
-            <ProjectTitle darkMode={darkMode}>{projectData.modularVerificationBot.name}</ProjectTitle>
-            <ProjectDescription darkMode={darkMode}>{projectData.modularVerificationBot.description}</ProjectDescription>
-            <ProjectButton
-              variant="outlined"
-              darkMode={darkMode}
-              href={projectData.modularVerificationBot.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon /> View on GitHub
-            </ProjectButton>
-          </ProjectCard>
-
-          {/* Parking System Card */}
-          <ProjectCard darkMode={darkMode}>
-            <img
-              src={projectData.parkingSystem.image}
-              alt="Parking System"
-              style={{
-                width: '100%',
-                height: '200px', // Ensure consistent height
-                objectFit: 'cover', // Make image cover the area while maintaining aspect ratio
-                borderRadius: '10px',
-                marginBottom: '20px',
-              }}
-            />
-            <ProjectTitle darkMode={darkMode}>{projectData.parkingSystem.name}</ProjectTitle>
-            <ProjectDescription darkMode={darkMode}>{projectData.parkingSystem.description}</ProjectDescription>
-            <ProjectButton
-              variant="outlined"
-              darkMode={darkMode}
-              href="#"
-              disabled
-              style={{
-                color: darkMode ? '#888' : '#b0bec5',
-                backgroundColor: darkMode ? '#23272b' : '#f5f5f5',
-                fontWeight: 400,
-                borderColor: darkMode ? '#23272b' : '#f5f5f5',
-                opacity: 0.7,
-                cursor: 'not-allowed',
-                boxShadow: 'none',
-              }}
-            >
-              Not Public
-            </ProjectButton>
-          </ProjectCard>
-
-          {/* RTW Rehab Provider Search Card */}
-          <ProjectCard darkMode={darkMode}>
-            <img
-              src={projectData.rtwRehabProviderSearch.image}
-              alt="RTW Rehab Provider Search"
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover',
-                borderRadius: '10px',
-                marginBottom: '20px',
-              }}
-            />
-            <ProjectTitle darkMode={darkMode}>{projectData.rtwRehabProviderSearch.name}</ProjectTitle>
-            <ProjectDescription darkMode={darkMode}>{projectData.rtwRehabProviderSearch.description}</ProjectDescription>
-            <ProjectButton
-              variant="outlined"
-              darkMode={darkMode}
-              href={projectData.rtwRehabProviderSearch.websiteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LanguageIcon /> Visit Website
-            </ProjectButton>
-            <ProjectButton
-              variant="outlined"
-              darkMode={darkMode}
-              href={projectData.rtwRehabProviderSearch.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon /> View on GitHub
-            </ProjectButton>
-          </ProjectCard>
+          {projects.map((project) => (
+            <ProjectCard darkMode={darkMode} key={project.key}>
+              <img
+                src={project.image}
+                alt={project.name}
+                style={{
+                  width: '100%',
+                  height: '200px',
+                  objectFit: 'cover',
+                  borderRadius: '10px',
+                  marginBottom: '20px',
+                }}
+              />
+              <ProjectTitle darkMode={darkMode}>{project.name}</ProjectTitle>
+              <ProjectDescription darkMode={darkMode}>{project.description}</ProjectDescription>
+              {project.websiteLink && (
+                <ProjectButton
+                  variant="outlined"
+                  darkMode={darkMode}
+                  href={project.websiteLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LanguageIcon /> Visit Website
+                </ProjectButton>
+              )}
+              {project.githubLink && (
+                <ProjectButton
+                  variant="outlined"
+                  darkMode={darkMode}
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHubIcon /> View on GitHub
+                </ProjectButton>
+              )}
+              {!project.public && (
+                <ProjectButton
+                  variant="outlined"
+                  darkMode={darkMode}
+                  href="#"
+                  disabled
+                  style={{
+                    color: darkMode ? '#888' : '#b0bec5',
+                    backgroundColor: darkMode ? '#23272b' : '#f5f5f5',
+                    fontWeight: 400,
+                    borderColor: darkMode ? '#23272b' : '#f5f5f5',
+                    opacity: 0.7,
+                    cursor: 'not-allowed',
+                    boxShadow: 'none',
+                  }}
+                >
+                  Not Public
+                </ProjectButton>
+              )}
+            </ProjectCard>
+          ))}
         </ProjectCardsContainer>
-
         <ProjectButton
           variant="outlined"
           darkMode={darkMode}

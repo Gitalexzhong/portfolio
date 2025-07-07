@@ -3,8 +3,6 @@ import { Box, Typography, Button, styled } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-// import DescriptionIcon from '@mui/icons-material/Description'; // Icon for resume
-// import resumeFile from '../assets/resume.pdf'; // Import the resume file
 
 // Styled components
 const ContactContainer = styled(Box)(({ darkMode }) => ({
@@ -50,12 +48,6 @@ const SocialIconButton = styled(Button)(({ darkMode }) => ({
   },
 }));
 
-const EmailText = styled(Typography)(({ darkMode }) => ({
-  fontSize: '1.25rem',
-  color: darkMode ? '#B0BEC5' : '#546E7A',
-  margin: '20px 0',
-}));
-
 function Contact({ darkMode }) {
   return (
     <section id="contact">
@@ -64,15 +56,15 @@ function Contact({ darkMode }) {
           Contact Me
         </Typography>
         <ContactDescription darkMode={darkMode}>
-          Feel free to reach out to me via email or connect with me on my social
-          media platforms. I'm always open to new opportunities and
-          collaborations!
+          Feel free to reach out to me via email or connect with me on my social media platforms. I'm always open to new opportunities and collaborations!
         </ContactDescription>
 
         {/* Email Address */}
-        <EmailText darkMode={darkMode}>
+        <Typography
+          sx={{ fontSize: '1.25rem', color: darkMode ? '#B0BEC5' : '#546E7A', margin: '20px 0' }}
+        >
           Email: <strong>alexzhong108@gmail.com</strong>
-        </EmailText>
+        </Typography>
 
         {/* Social Media Buttons */}
         <SocialIconsContainer>
@@ -104,16 +96,6 @@ function Contact({ darkMode }) {
             <EmailIcon /> Email
           </SocialIconButton>
         </SocialIconsContainer>
-
-        {/* Download Resume Button */}
-        {/* <SocialIconButton
-          variant="outlined"
-          darkMode={darkMode}
-          href={resumeFile} // Use the imported resume file
-          download="Alex_Zhong_Resume.pdf" // Name of the downloaded file
-        >
-          <DescriptionIcon /> Download Resume
-        </SocialIconButton> */}
       </ContactContainer>
     </section>
   );
