@@ -91,6 +91,14 @@ const projectData = {
     githubLink: "https://github.com/Gitalexzhong/portfolio/",
     image: WebsiteImage,  // Use imported image here
   },
+  rtwRehabProviderSearch: {
+    name: "RTW Rehab Provider Search",
+    description:
+      "A responsive web app for searching and visualizing RTW rehab provider locations in Australia. Built with Python, React, Vite, Leaflet, and Material-UI. Features an interactive map, address search, and provider filtering.",
+    websiteLink: "https://rtw-sira-rehab-finder.vercel.app/",
+    githubLink: "https://github.com/Gitalexzhong/webscrape-sira-rtw",
+    image: require('../assets/RTWSira.png'),
+  },
   modularVerificationBot: {
     name: "Cloud Hosted - Modular Verification Bot",
     description: "A low-bandwidth Docker-based bot designed to interact with external image databases for verification. Technologies used: Node.js, Docker, Google Cloud.",
@@ -194,8 +202,52 @@ function Projects({ darkMode }) {
               darkMode={darkMode}
               href="#"
               disabled
+              style={{
+                color: darkMode ? '#888' : '#b0bec5',
+                backgroundColor: darkMode ? '#23272b' : '#f5f5f5',
+                fontWeight: 400,
+                borderColor: darkMode ? '#23272b' : '#f5f5f5',
+                opacity: 0.7,
+                cursor: 'not-allowed',
+                boxShadow: 'none',
+              }}
             >
               Not Public
+            </ProjectButton>
+          </ProjectCard>
+
+          {/* RTW Rehab Provider Search Card */}
+          <ProjectCard darkMode={darkMode}>
+            <img
+              src={projectData.rtwRehabProviderSearch.image}
+              alt="RTW Rehab Provider Search"
+              style={{
+                width: '100%',
+                height: '200px',
+                objectFit: 'cover',
+                borderRadius: '10px',
+                marginBottom: '20px',
+              }}
+            />
+            <ProjectTitle darkMode={darkMode}>{projectData.rtwRehabProviderSearch.name}</ProjectTitle>
+            <ProjectDescription darkMode={darkMode}>{projectData.rtwRehabProviderSearch.description}</ProjectDescription>
+            <ProjectButton
+              variant="outlined"
+              darkMode={darkMode}
+              href={projectData.rtwRehabProviderSearch.websiteLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LanguageIcon /> Visit Website
+            </ProjectButton>
+            <ProjectButton
+              variant="outlined"
+              darkMode={darkMode}
+              href={projectData.rtwRehabProviderSearch.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon /> View on GitHub
             </ProjectButton>
           </ProjectCard>
         </ProjectCardsContainer>
