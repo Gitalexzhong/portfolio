@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import dxcLogo from '../assets/DXC_Technology_logo_(2021).svg.png';
+import emlLogo from '../assets/EML.png';
+import unswLofiLogo from '../assets/Lofi.png';
+import unswOpsLogo from '../assets/Onepiece.jpg';
+import nswEcLogo from '../assets/NSWelec.png';
 
 // Keyframe for hover animation (job titles slide up and color changes)
 const jobTitleHoverAnimation = keyframes`
@@ -81,9 +86,25 @@ const CompanyName = styled(Typography)(({ darkMode }) => ({
   },
 }));
 
+const LogoWrapper = styled(Box)(({ darkMode }) => ({
+  width: 120,
+  height: 120,
+  borderRadius: '12px',
+  backgroundColor: darkMode ? '#FFFFFF' : '#FFFFFF',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '8px',
+  marginBottom: '12px',
+  boxShadow: darkMode
+    ? '0 0 0 1px rgba(255, 255, 255, 0.08)'
+    : '0 0 0 1px rgba(0, 0, 0, 0.04)',
+}));
+
 const CompanyLogo = styled('img')({
-  maxHeight: '100px',
-  marginBottom: '10px',
+  maxWidth: '100%',
+  maxHeight: '100%',
+  objectFit: 'contain',
   borderRadius: '8px',
 });
 
@@ -124,7 +145,7 @@ function Experience({ darkMode }) {
   const experienceData = [
     {
       company: 'DXC Technology',
-      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQFt7orYWPc9MQ/company-logo_200_200/company-logo_200_200/0/1630537692227/dxctechnology_logo?e=1756944000&v=beta&t=ukIrurKAIfQ8A-8vbRLpOXtRE6grE6Kj36wLa1PvmPw',
+      logo: dxcLogo,
       linkedin: 'https://www.linkedin.com/company/dxc-technology/',
       roles: [
         {
@@ -136,7 +157,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'EML Group',
-      logo: 'https://media.licdn.com/dms/image/v2/D560BAQG28a3qZYybFg/company-logo_200_200/company-logo_200_200/0/1693768332527/emlgroup_logo?e=1756944000&v=beta&t=gkiI-3frDINi6CWfwQquWoT6vuTCDEqcNT3FpwbjMM4',
+      logo: emlLogo,
       linkedin: 'https://www.linkedin.com/company/eml-group/',
       roles: [
         {
@@ -148,7 +169,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'UNSW Lofi Society',
-      logo: 'https://media.licdn.com/dms/image/v2/D560BAQEWClSDBlPrgQ/company-logo_100_100/company-logo_100_100/0/1700304096220?e=1756944000&v=beta&t=O3g4R5apwGKGxkedQFyiD-zEaj_byG9ppCrdNT2RhC4',
+      logo: unswLofiLogo,
       linkedin: 'https://www.linkedin.com/company/unsw-lofi-society/',
       roles: [
         {
@@ -160,7 +181,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'UNSW One Piece Society',
-      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQEZTIBeNVQ8Og/company-logo_200_200/company-logo_200_200/0/1655955059670?e=1756944000&v=beta&t=5nw-2iwNsjBaiNNaUOeXPAAptYmMwgoDRtvHECp1KHI',
+      logo: unswOpsLogo,
       linkedin: 'https://www.linkedin.com/company/unsw-one-piece-society/',
       roles: [
         {
@@ -182,7 +203,7 @@ function Experience({ darkMode }) {
     },
     {
       company: 'NSW Electoral Commission',
-      logo: 'https://media.licdn.com/dms/image/v2/C560BAQEaCr_IYd1bdQ/company-logo_200_200/company-logo_200_200/0/1630620174637/nsw_electoral_commission_logo?e=1756944000&v=beta&t=t9mZBXd1FHdBR1ieNKpdjAAXzoQ6QmYp7CGuN9VADDI',
+      logo: nswEcLogo,
       linkedin: 'https://www.linkedin.com/company/nsw-electoral-commission/',
       roles: [
         {
@@ -218,7 +239,9 @@ function Experience({ darkMode }) {
               onMouseEnter={() => setHoveredCard(index + 1)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <CompanyLogo src={company.logo} alt={`${company.company} Logo`} />
+              <LogoWrapper darkMode={darkMode}>
+                <CompanyLogo src={company.logo} alt={`${company.company} Logo`} />
+              </LogoWrapper>
               <a
                 href={company.linkedin}
                 target="_blank"
