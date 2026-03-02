@@ -155,6 +155,7 @@ function Education({ darkMode }) {
             <DegreeName darkMode={darkMode}>
               PL-300: Microsoft Power BI Data Analyst Certification
             </DegreeName>
+            <DateRange darkMode={darkMode}>To be completed</DateRange>
           </Box>
         </EducationCard>
       </EducationContainer>
